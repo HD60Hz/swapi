@@ -4,10 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Component imports
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { FilmsComponent} from './films/films.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/landing', pathMatch: 'full'},
-  {path: 'landing', component: LandingPageComponent}
+  {path: 'landing', component: LandingPageComponent},
+  {path: 'films', component: FilmsComponent}
+
 ]
 
 @NgModule({
