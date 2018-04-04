@@ -12,11 +12,15 @@ import * as FilmActions from '../../state/films/films.actions';
 })
 export class FilmsComponent implements OnInit {
 
+  // Set up Variables
   films$: Observable<any>;
   categoryContent: any;
   films_content: any;
   constructor( private store: Store<FilmState>) {
     this.films$ = this.store;
+
+    // Subscribe to get all data and extract people data out
+    // TODO: As an enhancement only select relevant parts of the store
     this.films$.subscribe((data) => {
       this.films_content = data.film;
     });

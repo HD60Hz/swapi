@@ -9,6 +9,7 @@ export function PeopleReducer(state = initialPeopleState, action: fromFilms.Peop
 
     case fromFilms.GET_PEOPLE: {
       return {
+        // Set the state of loading to true to allow a loading message
         ...state,
         loading: true,
       };
@@ -16,6 +17,7 @@ export function PeopleReducer(state = initialPeopleState, action: fromFilms.Peop
 
     case fromFilms.GET_PEOPLE_SUCCESS: {
       return {
+        // Turn loading off as data is received
         ...state,
         people_content: action.payload.people_content,
         error: action.payload.error,
@@ -25,6 +27,7 @@ export function PeopleReducer(state = initialPeopleState, action: fromFilms.Peop
 
     case fromFilms.GET_PEOPLE_FAILURE: {
       return {
+        // Handle errors getting people data
         ...initialPeopleState,
         error: action.payload.error,
         loading: false,

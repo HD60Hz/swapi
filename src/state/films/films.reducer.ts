@@ -7,6 +7,7 @@ import { FilmState, initialState } from './films.state';
 export function FilmsReducer(state = initialState, action: fromFilms.FilmsActions): FilmState {
   switch (action.type) {
 
+    // Create loading state to allow for message when waiting for data
     case fromFilms.GET_FILMS: {
       return {
         ...state,
@@ -14,6 +15,7 @@ export function FilmsReducer(state = initialState, action: fromFilms.FilmsAction
       };
     };
 
+    // Collect film data
     case fromFilms.GET_FILMS_SUCCESS: {
       return {
         ...state,
@@ -23,6 +25,7 @@ export function FilmsReducer(state = initialState, action: fromFilms.FilmsAction
       };
     };
 
+    // Fail case for film data not being recieved
     case fromFilms.GET_FILMS_FAILURE: {
       return {
         ...initialState,

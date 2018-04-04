@@ -25,6 +25,7 @@ export class PeopleEffects {
   @Effect () getPeople$: Observable<Action> = this.actions$.ofType(peopleActions.GET_PEOPLE)
     .pipe(
       switchMap(() => {
+        // Add a recursive function to deal with arrays over 10 items.
         return this.http.get('https://swapi.co/api/people').pipe(
           map(data => new peopleActions.GetPeopleSuccessAction({people_content :  data})),
           catchError(error => of(new peopleActions.GetPeopleFailureAction(error)))

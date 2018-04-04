@@ -1,3 +1,4 @@
+// Dummy model for films - to be used ideally when service is created
 export interface Films {
   fields: {
     title: string;

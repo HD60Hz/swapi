@@ -1,4 +1,6 @@
 
+// states for people data
+
 export interface PeopleState {
   people_content?: any;
   error?: any;

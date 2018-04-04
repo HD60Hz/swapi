@@ -22,6 +22,8 @@ export class FilmEffects {
     private actions$: Actions
   ) { }
 
+  // Effect to get film data from swapi.com
+  // Using newer pipe rxjs methods so will need to use catchError
   @Effect () getFilms$: Observable<Action> = this.actions$.ofType(filmActions.GET_FILMS)
     .pipe(
       switchMap(() => {
