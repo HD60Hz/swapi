@@ -12,10 +12,11 @@ import { FilmsComponent } from './films/films.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavComponent } from './nav/nav.component';
 
-import { StarWarsReducer } from '../state/star-wars/star-wars.reducer';
-import { StarWarsEffects } from '../state/star-wars/star-wars.effects';
 import { FilmsReducer } from '../state/films/films.reducer';
 import { FilmEffects } from '../state/films/films.effects'
+import { PeopleReducer} from '../state/people/people.reducer';
+import { PeopleEffects} from '../state/people/people.effects';
+import {PeopleComponent} from './people/people.component';
 
 
 @NgModule({
@@ -24,12 +25,13 @@ import { FilmEffects } from '../state/films/films.effects'
     LandingPageComponent,
     FilmsComponent,
     NavComponent,
+    PeopleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot(({ film: FilmsReducer })),
-    EffectsModule.forRoot([ FilmEffects]),
+    StoreModule.forRoot(({ film: FilmsReducer, people: PeopleReducer })),
+    EffectsModule.forRoot([ FilmEffects, PeopleEffects]),
     HttpModule,
     HttpClientModule
   ],
